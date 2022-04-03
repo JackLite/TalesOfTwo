@@ -1,0 +1,84 @@
+﻿{
+  "patterns": [
+    {
+      "obstacles": [
+        {
+          "line": 1,
+          "delay": 0,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 1,
+          "delay": 0,
+          "type": "tree",
+          "direction": "left"
+        },
+        {
+          "line": 2,
+          "delay": 1,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 2,
+          "delay": 1,
+          "type": "tree",
+          "direction": "left"
+        },
+        {
+          "line": 2,
+          "delay": 2,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 3,
+          "delay": 2,
+          "type": "tree",
+          "direction": "left"
+        }
+      ]
+    },
+    {
+      "obstacles": [
+        {
+          "line": 3,
+          "delay": 0,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 3,
+          "delay": 0,
+          "type": "tree",
+          "direction": "left"
+        },
+        {
+          "line": 2,
+          "delay": 1,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 2,
+          "delay": 1,
+          "type": "tree",
+          "direction": "left"
+        },
+        {
+          "line": 1,
+          "delay": 2,
+          "type": "tree",
+          "direction": "right"
+        },
+        {
+          "line": 2,
+          "delay": 2,
+          "type": "tree",
+          "direction": "left"
+        }
+      ]
+    }
+  ]
+}

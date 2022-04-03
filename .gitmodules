@@ -1,0 +1,3 @@
+[submodule "Assets/ThirdParty/GoldsteinEcs"]
+	path = Assets/ThirdParty/GoldsteinEcs
+	url = https://github.com/JackLite/GoldsteinEcs

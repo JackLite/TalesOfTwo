@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9eaa246ace162ec4da904c3c7d7420d2
+  m_SerializeEntries:
+  - m_GUID: 585d553f1b4c5734791d7eb12b6fe02c
+    m_Address: StartScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c21a68a194db30f4390cb0514f91a40f
+    m_Address: MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f8f6fdf0606ff61408a00eebf46fd872
+    m_Address: CoreScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1608f3be711cadd45892b4d1da5a417e
+    m_Address: CoreSettings
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 469890fb530db8e4c9a8bfdce1b90ce0
+    m_Address: Assets/Visual/Core/Lines/Line.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f739d43486e81634c96bdf8de108d591
+    m_Address: Assets/Visual/Core/Obstacles/Obstacle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6057f39a8cde44628c61481d2dffb2a6
+    m_Address: patterns
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 18790eb0d83af284b9c5d4ed392a7e51, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 11b63f06589129b4ea9e0a9ec72875db, type: 2}
+    - {fileID: 11400000, guid: a4c49eef40d49334aa9619fb9f4f0c80, type: 2}
