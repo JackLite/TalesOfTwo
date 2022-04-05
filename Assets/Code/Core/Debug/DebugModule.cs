@@ -10,6 +10,7 @@ namespace FlyAdventure.Core.Debug
         {
             var settings = await Addressables.LoadAssetAsync<CoreSettingsContainer>("CoreSettings").Task;
             Dependencies[typeof(MoveSettings)] = settings.MoveSettings;
+            Dependencies[typeof(CoreSettings)] = settings.CoreSettings;
         }
     }
 }

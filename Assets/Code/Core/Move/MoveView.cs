@@ -12,7 +12,8 @@ namespace FlyAdventure.Core.Move
 
         public void SetVelocity(Vector2 velocity)
         {
-            _rigid.velocity = velocity;
+            // _rigid.velocity = velocity;
+            transform.position += new Vector3(velocity.x, velocity.y, 0);
         }
 
         public void SetY(float y)

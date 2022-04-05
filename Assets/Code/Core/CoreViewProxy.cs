@@ -1,4 +1,5 @@
 ﻿using FlyAdventure.Core.Avatars;
+using FlyAdventure.Core.Environment;
 using FlyAdventure.Core.Lines;
 using FlyAdventure.Core.Obstacles;
 using UnityEngine;
@@ -15,8 +16,11 @@ namespace FlyAdventure.Core
 
         [field:SerializeField]
         public LinesPool LinesPool { get; private set; }
-        
+
         [field:SerializeField]
         public ObstaclesPool ObstaclesPool { get; private set; }
+
+        [field:SerializeField]
+        public EnvironmentContainer EnvironmentContainer { get; private set; }
     }
 }

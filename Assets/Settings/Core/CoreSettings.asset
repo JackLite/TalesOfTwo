@@ -15,6 +15,8 @@ MonoBehaviour:
   <CoreSettings>k__BackingField:
     <MainCameraZero>k__BackingField: {x: 100, y: 100}
     <DelayBetweenPatterns>k__BackingField: 6
+    <EnvironmentSpeed>k__BackingField: 17.77778
+    <ObstaclesSpeed>k__BackingField: 8.88889
   <MoveSettings>k__BackingField:
     <AvatarSpeed>k__BackingField: 5
     ease:
