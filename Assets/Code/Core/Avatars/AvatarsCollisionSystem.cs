@@ -8,6 +8,8 @@ namespace TheTalesOfTwo.Core.Avatars
     public class AvatarsCollisionSystem : IEcsRunSystem
     {
         private EcsFilter<AvatarTag, CollisionComponent> _filter;
+        private EcsWorld _world;
+        
         public void Run()
         {
             foreach (var i in _filter)
@@ -19,6 +21,7 @@ namespace TheTalesOfTwo.Core.Avatars
                 collision.isCollide = false;
                 collision.collider.StopUntilExit();
                 UnityEngine.Debug.Log("Collide!");
+                _filter.GetEntity(i).Replace(new CollideTag());
             }
         }
     }

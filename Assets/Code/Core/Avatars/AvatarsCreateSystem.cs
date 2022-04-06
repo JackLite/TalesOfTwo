@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Collision;
+using TheTalesOfTwo.Core.Hp;
 using TheTalesOfTwo.Core.Input;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
@@ -19,11 +20,14 @@ namespace TheTalesOfTwo.Core.Avatars
         private EcsWorld _world;
         private AvatarsContainer _avatarsContainer;
         private MoveSettings _moveSettings;
+        private CoreSettings _coreSettings;
 
         public void PreInit()
         {
             Create(_avatarsContainer.LeftAvatar);
             Create(_avatarsContainer.RightAvatar, true);
+
+            _world.NewEntity().Replace(new HpComponent(_coreSettings.Health)).Replace(new AvatarTag());
         }
 
         private void Create(AvatarView avatar, bool isRight = false)

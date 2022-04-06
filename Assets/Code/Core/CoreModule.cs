@@ -4,6 +4,7 @@ using EcsCore;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Debug;
 using TheTalesOfTwo.Core.Environment;
+using TheTalesOfTwo.Core.Hp.GUI;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Obstacles;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
@@ -21,6 +22,7 @@ namespace TheTalesOfTwo.Core
         private SceneInstance _scene;
         private readonly List<Object> _resources = new();
         private CoreSettingsContainer _settings;
+
         protected override async Task Setup()
         {
             if (SceneManager.GetActiveScene().name != "Core")
@@ -30,11 +32,19 @@ namespace TheTalesOfTwo.Core
             _resources.Add(patterns);
             _resources.Add(_settings);
             await SetupView();
+            await SetupGUI();
             Dependencies[typeof(PatternsRawContainer)] = new PatternsRawContainer(patterns.text);
             Dependencies[typeof(CoreSettings)] = _settings.CoreSettings;
             Dependencies[typeof(MoveSettings)] = _settings.MoveSettings;
             if (Application.isEditor)
                 World.ActivateModule<DebugModule>();
+        }
+        
+        private async Task SetupGUI()
+        {
+            var proxy = Object.FindObjectOfType<CoreGUIProxy>();
+            Dependencies[typeof(HpBarView)] = proxy.HpBarView;
+            await Task.CompletedTask;
         }
 
         private async Task SetupView()

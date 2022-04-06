@@ -7,9 +7,6 @@ namespace TheTalesOfTwo.Core.Settings
     public class CoreSettings
     {
         [field:SerializeField]
-        public Vector2 MainCameraZero { get; private set; }
-
-        [field:SerializeField]
         public float DelayBetweenPatterns { get; private set; } = 3;
 
         [field:SerializeField]
@@ -17,5 +14,8 @@ namespace TheTalesOfTwo.Core.Settings
         
         [field:SerializeField]
         public float ObstaclesSpeed { get; private set; } = 10;
+
+        [field:SerializeField]
+        public int Health { get; private set; } = 3;
     }
 }
