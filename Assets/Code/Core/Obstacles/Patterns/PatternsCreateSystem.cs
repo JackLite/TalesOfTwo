@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using EcsCore;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
+using TheTalesOfTwo.Core.Settings;
 
-namespace FlyAdventure.Core.Obstacles.Patterns
+namespace TheTalesOfTwo.Core.Obstacles.Patterns
 {
     [EcsSystem(typeof(CoreModule))]
     public class PatternsCreateSystem : IEcsPreInitSystem

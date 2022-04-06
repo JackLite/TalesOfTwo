@@ -1,9 +1,8 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
-using UnityEngine;
+using TheTalesOfTwo.Core.Settings;
 
-namespace FlyAdventure.Core.Environment
+namespace TheTalesOfTwo.Core.Environment
 {
     [EcsSystem(typeof(CoreModule))]
     public class EnvironmentCreateSystem : IEcsPreInitSystem

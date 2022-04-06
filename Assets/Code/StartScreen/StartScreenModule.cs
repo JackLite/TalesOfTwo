@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EcsCore;
-using FlyAdventure.MainMenu;
+using TheTalesOfTwo.MainMenu;
 using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
 
-namespace FlyAdventure.StartScreen
+namespace TheTalesOfTwo.StartScreen
 {
     public class StartScreenModule : EcsModuleWithDependencies
     {

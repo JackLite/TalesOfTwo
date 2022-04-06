@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Random = Unity.Mathematics.Random;
 
-namespace FlyAdventure.Core.Obstacles.Patterns
+namespace TheTalesOfTwo.Core.Obstacles.Patterns
 {
     public class PatternsRawContainer
     {

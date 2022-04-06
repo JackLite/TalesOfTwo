@@ -1,7 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 
-namespace FlyAdventure.Core.Collision
+namespace TheTalesOfTwo.Core.Collision
 {
     [EcsSystem(typeof(CoreModule))]
     public class CollisionSystem : IEcsRunLateSystem

@@ -1,9 +1,9 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Lines;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Lines;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Move.ToLine
+namespace TheTalesOfTwo.Core.Move.ToLine
 {
     [EcsSystem(typeof(CoreModule))]
     public class MoveToLineSystem : IEcsRunSystem

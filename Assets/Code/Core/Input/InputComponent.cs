@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Input
+﻿namespace TheTalesOfTwo.Core.Input
 {
     public struct InputComponent
     {

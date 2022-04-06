@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FlyAdventure.MainMenu
+namespace TheTalesOfTwo.MainMenu
 {
     public class MainScreenView : MonoBehaviour
     {

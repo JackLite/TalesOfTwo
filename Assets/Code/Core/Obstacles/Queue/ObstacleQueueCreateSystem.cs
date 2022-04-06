@@ -1,10 +1,10 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Obstacles.Patterns;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
+using TheTalesOfTwo.Core.Obstacles.Patterns;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Obstacles.Queue
+namespace TheTalesOfTwo.Core.Obstacles.Queue
 {
     [EcsSystem(typeof(CoreModule))]
     public class ObstacleQueueCreateSystem : IEcsRunSystem

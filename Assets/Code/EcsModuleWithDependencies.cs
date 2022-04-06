@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EcsCore;
 using Leopotam.Ecs;
 
-namespace FlyAdventure
+namespace TheTalesOfTwo
 {
     public abstract class EcsModuleWithDependencies : EcsModule
     {

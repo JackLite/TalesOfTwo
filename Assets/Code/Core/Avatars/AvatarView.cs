@@ -1,8 +1,8 @@
-﻿using FlyAdventure.Core.Collision;
-using FlyAdventure.Core.Move;
+﻿using TheTalesOfTwo.Core.Collision;
+using TheTalesOfTwo.Core.Move;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Avatars
+namespace TheTalesOfTwo.Core.Avatars
 {
     public class AvatarView : MonoBehaviour
     {

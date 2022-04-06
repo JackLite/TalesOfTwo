@@ -1,10 +1,10 @@
-﻿using FlyAdventure.Core.Avatars;
-using FlyAdventure.Core.Environment;
-using FlyAdventure.Core.Lines;
-using FlyAdventure.Core.Obstacles;
+﻿using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Environment;
+using TheTalesOfTwo.Core.Lines;
+using TheTalesOfTwo.Core.Obstacles;
 using UnityEngine;
 
-namespace FlyAdventure.Core
+namespace TheTalesOfTwo.Core
 {
     /// <summary>
     /// Хранилище ссылок на объекты на сцене, не считая UI

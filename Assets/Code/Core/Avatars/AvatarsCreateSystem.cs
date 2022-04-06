@@ -1,14 +1,14 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Collision;
-using FlyAdventure.Core.Input;
-using FlyAdventure.Core.Lines;
-using FlyAdventure.Core.Move;
-using FlyAdventure.Core.Move.ToLine;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Collision;
+using TheTalesOfTwo.Core.Input;
+using TheTalesOfTwo.Core.Lines;
+using TheTalesOfTwo.Core.Move;
+using TheTalesOfTwo.Core.Move.ToLine;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Avatars
+namespace TheTalesOfTwo.Core.Avatars
 {
     /// <summary>
     /// Отвечает за создание аватаров игрока

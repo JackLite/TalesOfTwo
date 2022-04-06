@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Collision
+﻿namespace TheTalesOfTwo.Core.Collision
 {
     public struct CollisionComponent
     {

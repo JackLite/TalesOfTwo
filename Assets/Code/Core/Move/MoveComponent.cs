@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Move
+﻿namespace TheTalesOfTwo.Core.Move
 {
     public struct MoveComponent
     {

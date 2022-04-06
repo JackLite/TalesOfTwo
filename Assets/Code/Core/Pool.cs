@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace FlyAdventure.Core
+namespace TheTalesOfTwo.Core
 {
     public class Pool<T> : MonoBehaviour where T : Component
     {

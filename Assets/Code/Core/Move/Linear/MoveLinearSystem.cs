@@ -1,9 +1,9 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Move.Linear
+namespace TheTalesOfTwo.Core.Move.Linear
 {
     [EcsSystem(typeof(CoreModule))]
     public class MoveLinearSystem : IEcsRunSystem

@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EcsCore;
-using FlyAdventure.Core.Avatars;
-using FlyAdventure.Core.Debug;
-using FlyAdventure.Core.Environment;
-using FlyAdventure.Core.Lines;
-using FlyAdventure.Core.Obstacles;
-using FlyAdventure.Core.Obstacles.Patterns;
-using FlyAdventure.Core.Settings;
+using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Debug;
+using TheTalesOfTwo.Core.Environment;
+using TheTalesOfTwo.Core.Lines;
+using TheTalesOfTwo.Core.Obstacles;
+using TheTalesOfTwo.Core.Obstacles.Patterns;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace FlyAdventure.Core
+namespace TheTalesOfTwo.Core
 {
     public class CoreModule : EcsModuleWithDependencies
     {

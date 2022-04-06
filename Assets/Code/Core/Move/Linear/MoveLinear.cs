@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Move.Linear
+namespace TheTalesOfTwo.Core.Move.Linear
 {
     public struct MoveLinear
     {

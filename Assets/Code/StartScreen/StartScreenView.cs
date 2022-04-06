@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.StartScreen
+namespace TheTalesOfTwo.StartScreen
 {
     public class StartScreenView : MonoBehaviour
     {

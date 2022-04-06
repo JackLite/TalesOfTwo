@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Settings
+namespace TheTalesOfTwo.Core.Settings
 {
     [CreateAssetMenu(menuName = "FlyAdventure/Settings/CoreSettings", fileName = "CoreSettings")]
     public class CoreSettingsContainer : ScriptableObject

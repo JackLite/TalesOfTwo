@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core
+namespace TheTalesOfTwo.Core
 {
     /// <summary>
     /// Обёртка над юнитёвским transform

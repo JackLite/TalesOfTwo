@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using FlyAdventure.Core.Settings;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine.AddressableAssets;
 
-namespace FlyAdventure.Core.Debug
+namespace TheTalesOfTwo.Core.Debug
 {
     public class DebugModule : EcsModuleWithDependencies
     {

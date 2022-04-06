@@ -1,13 +1,13 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Lines;
-using FlyAdventure.Core.Move;
-using FlyAdventure.Core.Move.Linear;
-using FlyAdventure.Core.Obstacles.Queue;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Lines;
+using TheTalesOfTwo.Core.Move;
+using TheTalesOfTwo.Core.Move.Linear;
+using TheTalesOfTwo.Core.Obstacles.Queue;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Obstacles
+namespace TheTalesOfTwo.Core.Obstacles
 {
     [EcsSystem(typeof(CoreModule))]
     public class ObstacleSpawnSystem : IEcsRunSystem

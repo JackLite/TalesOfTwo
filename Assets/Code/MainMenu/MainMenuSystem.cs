@@ -1,8 +1,8 @@
 ﻿using EcsCore;
-using FlyAdventure.Core;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core;
 
-namespace FlyAdventure.MainMenu
+namespace TheTalesOfTwo.MainMenu
 {
     [EcsSystem(typeof(MainMenuModule))]
     public class MainMenuSystem : IEcsInitSystem

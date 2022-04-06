@@ -1,12 +1,10 @@
-﻿using System;
-using EcsCore;
-using FlyAdventure.Core.Move;
-using FlyAdventure.Core.Move.Linear;
-using FlyAdventure.Core.Obstacles;
-using FlyAdventure.Core.Settings;
+﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Move;
+using TheTalesOfTwo.Core.Obstacles;
+using TheTalesOfTwo.Core.Settings;
 
-namespace FlyAdventure.Core.Debug
+namespace TheTalesOfTwo.Core.Debug
 {
     [EcsSystem(typeof(DebugModule))]
     public class ObstaclesUpdateSystem : IEcsRunSystem

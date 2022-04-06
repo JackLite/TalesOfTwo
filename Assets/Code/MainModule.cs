@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using EcsCore;
-using FlyAdventure.Core;
-using FlyAdventure.StartScreen;
+using TheTalesOfTwo.Core;
+using TheTalesOfTwo.StartScreen;
 using UnityEngine.SceneManagement;
 
-namespace FlyAdventure
+namespace TheTalesOfTwo
 {
     [EcsGlobalModule]
     public class MainModule : EcsModule

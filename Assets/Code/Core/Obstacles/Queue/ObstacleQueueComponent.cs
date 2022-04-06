@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Obstacles.Queue
+﻿namespace TheTalesOfTwo.Core.Obstacles.Queue
 {
     public struct ObstacleQueueComponent
     {

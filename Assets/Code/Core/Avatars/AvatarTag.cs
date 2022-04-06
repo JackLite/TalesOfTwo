@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Avatars
+﻿namespace TheTalesOfTwo.Core.Avatars
 {
     public struct AvatarTag
     {

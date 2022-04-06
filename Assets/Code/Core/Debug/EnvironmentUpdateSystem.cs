@@ -1,10 +1,10 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Environment;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Environment;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Debug
+namespace TheTalesOfTwo.Core.Debug
 {
     [EcsSystem(typeof(DebugModule))]
     public class EnvironmentUpdateSystem : IEcsRunSystem

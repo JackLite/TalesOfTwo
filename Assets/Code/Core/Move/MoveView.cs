@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Move
+namespace TheTalesOfTwo.Core.Move
 {
     /// <summary>
     /// Отвечает за управление движением объекта в юнити

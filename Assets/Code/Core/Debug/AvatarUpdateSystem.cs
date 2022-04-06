@@ -1,10 +1,10 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Move;
-using FlyAdventure.Core.Move.ToLine;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Move;
+using TheTalesOfTwo.Core.Move.ToLine;
+using TheTalesOfTwo.Core.Settings;
 
-namespace FlyAdventure.Core.Debug
+namespace TheTalesOfTwo.Core.Debug
 {
     [EcsSystem(typeof(DebugModule))]
     public class AvatarUpdateSystem : IEcsRunSystem

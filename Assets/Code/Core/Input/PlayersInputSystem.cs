@@ -1,9 +1,10 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Move.ToLine;
+using FlyAdventure.Core.Input;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Move.ToLine;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Input
+namespace TheTalesOfTwo.Core.Input
 {
     [EcsSystem(typeof(CoreModule))]
     public class PlayersInputSystem : IEcsPreInitSystem, IEcsRunSystem

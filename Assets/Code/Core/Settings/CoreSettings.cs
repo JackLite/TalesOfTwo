@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Settings
+namespace TheTalesOfTwo.Core.Settings
 {
     [Serializable]
     public class CoreSettings

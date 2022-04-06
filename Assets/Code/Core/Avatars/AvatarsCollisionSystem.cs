@@ -1,8 +1,8 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Collision;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Collision;
 
-namespace FlyAdventure.Core.Avatars
+namespace TheTalesOfTwo.Core.Avatars
 {
     [EcsSystem(typeof(CoreModule))]
     public class AvatarsCollisionSystem : IEcsRunSystem

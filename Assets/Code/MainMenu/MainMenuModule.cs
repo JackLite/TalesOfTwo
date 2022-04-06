@@ -3,7 +3,7 @@ using EcsCore;
 using Leopotam.Ecs;
 using UnityEngine.AddressableAssets;
 
-namespace FlyAdventure.MainMenu
+namespace TheTalesOfTwo.MainMenu
 {
     public class MainMenuModule : EcsModuleWithDependencies
     {

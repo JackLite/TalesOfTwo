@@ -1,9 +1,8 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
-using Unity.Mathematics;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Environment
+namespace TheTalesOfTwo.Core.Environment
 {
     [EcsSystem(typeof(CoreModule))]
     public class TextureOffsetSystem : IEcsInitSystem

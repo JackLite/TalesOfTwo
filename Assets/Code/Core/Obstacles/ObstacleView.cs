@@ -1,7 +1,7 @@
-﻿using FlyAdventure.Core.Move;
+﻿using TheTalesOfTwo.Core.Move;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Obstacles
+namespace TheTalesOfTwo.Core.Obstacles
 {
     public class ObstacleView : MonoBehaviour
     {

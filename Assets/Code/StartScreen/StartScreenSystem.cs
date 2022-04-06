@@ -1,8 +1,8 @@
 ﻿using EcsCore;
-using FlyAdventure.MainMenu;
 using Leopotam.Ecs;
+using TheTalesOfTwo.MainMenu;
 
-namespace FlyAdventure.StartScreen
+namespace TheTalesOfTwo.StartScreen
 {
     [EcsSystem(typeof(StartScreenModule))]
     public class StartScreenSystem : IEcsRunSystem

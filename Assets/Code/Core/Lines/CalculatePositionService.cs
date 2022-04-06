@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Lines
+﻿namespace TheTalesOfTwo.Core.Lines
 {
     public static class CalculatePositionService
     {

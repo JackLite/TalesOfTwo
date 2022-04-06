@@ -1,9 +1,9 @@
 ﻿using EcsCore;
-using FlyAdventure.Core.Settings;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Lines
+namespace TheTalesOfTwo.Core.Lines
 {
     [EcsSystem(typeof(CoreModule))]
     public class LineSystem : IEcsPreInitSystem, IEcsInitSystem

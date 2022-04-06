@@ -2,7 +2,7 @@
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace FlyAdventure.Core.Obstacles
+namespace TheTalesOfTwo.Core.Obstacles
 {
     [EcsSystem(typeof(CoreModule))]
     public class ObstacleRemoveSystem : IEcsRunLateSystem

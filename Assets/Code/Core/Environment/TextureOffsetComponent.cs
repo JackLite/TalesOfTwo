@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Environment
+namespace TheTalesOfTwo.Core.Environment
 {
     public struct TextureOffsetComponent
     {

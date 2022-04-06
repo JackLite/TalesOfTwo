@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.MainMenu
+﻿namespace TheTalesOfTwo.MainMenu
 {
     public struct MainMenuLoadTag
     {

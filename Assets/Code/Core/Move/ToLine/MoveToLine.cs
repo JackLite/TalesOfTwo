@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Move.ToLine
+namespace TheTalesOfTwo.Core.Move.ToLine
 {
     public struct MoveToLine
     {

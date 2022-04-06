@@ -1,4 +1,4 @@
-﻿namespace FlyAdventure.Core.Obstacles.Patterns
+﻿namespace TheTalesOfTwo.Core.Obstacles.Patterns
 {
     public struct PatternComponent
     {

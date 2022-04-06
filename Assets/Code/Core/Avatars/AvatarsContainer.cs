@@ -1,7 +1,6 @@
-﻿using FlyAdventure.Core.Move;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Avatars
+namespace TheTalesOfTwo.Core.Avatars
 {
     public class AvatarsContainer : MonoBehaviour
     {

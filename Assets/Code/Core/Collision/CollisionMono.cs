@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlyAdventure.Core.Collision
+namespace TheTalesOfTwo.Core.Collision
 {
     [RequireComponent(typeof(Collider2D))]
     public class CollisionMono : MonoBehaviour
