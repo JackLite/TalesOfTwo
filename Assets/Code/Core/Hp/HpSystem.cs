@@ -14,10 +14,8 @@ namespace TheTalesOfTwo.Core.Hp
         private EcsFilter<AvatarComponent> _avatars;
         public void Run()
         {
-            var isHurt = false;
             foreach (var i in _collideFilter)
             {
-                isHurt = true;
                 foreach (var j in _hpFilter)
                 {
                     ref var hp = ref _hpFilter.Get2(j);
@@ -27,12 +25,6 @@ namespace TheTalesOfTwo.Core.Hp
                 ref var avatar = ref _collideFilter.Get1(i);
                 avatar.view.SetHurt();
             }
-
-            if (!isHurt)
-                return;
-
-            foreach (var i in _avatars)
-                _avatars.GetEntity(i).Del<MoveComponent>();
         }
     }
 }

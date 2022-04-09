@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
+using TheTalesOfTwo.Core.AvatarHit;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
 using TheTalesOfTwo.Core.Time;

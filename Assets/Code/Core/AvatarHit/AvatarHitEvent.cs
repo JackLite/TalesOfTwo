@@ -1,4 +1,4 @@
-﻿namespace TheTalesOfTwo.Core.Avatars
+﻿namespace TheTalesOfTwo.Core.AvatarHit
 {
     public struct AvatarHitEvent
     {

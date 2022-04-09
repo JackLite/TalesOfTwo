@@ -43,7 +43,7 @@ namespace TheTalesOfTwo.Core.Move.ToLine
         {
             var proceed = 1 - ml.remain;
             var factor = ml.ease.Evaluate(proceed) - proceed;
-            var speed = m.speed + m.speed * factor;
+            var speed = m.speed * m.factor + m.speed * factor;
             var delta = linePosDiff * speed * UnityEngine.Time.deltaTime;
             return delta;
         }

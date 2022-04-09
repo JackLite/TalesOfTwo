@@ -1,17 +1,16 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Collision;
 using TheTalesOfTwo.Core.Environment;
 using TheTalesOfTwo.Core.Move;
-using TheTalesOfTwo.Misc;
 
-namespace TheTalesOfTwo.Core.Avatars
+namespace TheTalesOfTwo.Core.AvatarHit
 {
     [EcsSystem(typeof(CoreModule))]
-    public class AvatarsCollisionSystem : IEcsRunSystem
+    public class AvatarsHitSystem : IEcsRunSystem
     {
         private EcsFilter<AvatarComponent, CollisionComponent> _filter;
-        private EcsFilter<MoveComponent> _moveFilter;
         private EcsFilter<TextureOffsetComponent> _textureOffset;
         private EcsWorld _world;
 
@@ -32,7 +31,11 @@ namespace TheTalesOfTwo.Core.Avatars
             }
 
             if (isCollide)
+            {
                 _world.CreateOneFrame().Replace(new AvatarHitEvent());
+                // TODO: брать из настроек
+                _world.NewEntity().Replace(new ResumeAfterHitComponent { delay = 2, duration = 4, remain = 4});
+            }
         }
     }
 }

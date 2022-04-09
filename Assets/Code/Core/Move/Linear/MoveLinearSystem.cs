@@ -15,7 +15,7 @@ namespace TheTalesOfTwo.Core.Move.Linear
             {
                 ref var move = ref _filter.Get1(i);
                 ref var linear = ref _filter.Get2(i);
-                move.view.SetVelocity(move.speed * linear.direction * UnityEngine.Time.deltaTime);
+                move.view.SetVelocity(move.speed * move.factor * linear.direction * UnityEngine.Time.deltaTime);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.AvatarHit;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Time;
 

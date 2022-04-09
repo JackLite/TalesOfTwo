@@ -44,7 +44,8 @@ namespace TheTalesOfTwo.Core.Avatars
             {
                 view = avatar.MoveView, 
                 speed = _moveSettings.AvatarSpeed, 
-                canBePaused = true
+                canBePaused = true,
+                factor = 1
             };
             _world.NewEntity()
                   .Replace(moveComponent)

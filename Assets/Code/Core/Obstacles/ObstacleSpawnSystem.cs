@@ -1,5 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.AvatarHit;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
@@ -39,7 +40,8 @@ namespace TheTalesOfTwo.Core.Obstacles
                 {
                     speed = _settings.ObstaclesSpeed,
                     view = view.MoveView,
-                    canBePaused = true
+                    canBePaused = true,
+                    factor = 1
                 };
                 _world.NewEntity()
                       .Replace(moveComponent)
