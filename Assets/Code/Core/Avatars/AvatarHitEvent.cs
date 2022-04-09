@@ -1,7 +1,7 @@
 ﻿namespace TheTalesOfTwo.Core.Avatars
 {
-    public struct AvatarTag
+    public struct AvatarHitEvent
     {
-
+        
     }
 }

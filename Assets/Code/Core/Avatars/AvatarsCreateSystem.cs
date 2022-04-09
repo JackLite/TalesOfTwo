@@ -27,7 +27,7 @@ namespace TheTalesOfTwo.Core.Avatars
             Create(_avatarsContainer.LeftAvatar);
             Create(_avatarsContainer.RightAvatar, true);
 
-            _world.NewEntity().Replace(new HpComponent(_coreSettings.Health)).Replace(new AvatarTag());
+            _world.NewEntity().Replace(new HpComponent(_coreSettings.Health)).Replace(new AvatarComponent());
         }
 
         private void Create(AvatarView avatar, bool isRight = false)
@@ -40,12 +40,18 @@ namespace TheTalesOfTwo.Core.Avatars
                 toLine = startLine,
                 ease = _moveSettings.ease
             };
+            var moveComponent = new MoveComponent
+            {
+                view = avatar.MoveView, 
+                speed = _moveSettings.AvatarSpeed, 
+                canBePaused = true
+            };
             _world.NewEntity()
-                  .Replace(new AvatarTag())
-                  .Replace(new InputComponent { isRight = isRight })
-                  .Replace(new MoveComponent { view = avatar.MoveView, speed = _moveSettings.AvatarSpeed })
-                  .Replace(new TransformComponent { transform = avatar.transform })
+                  .Replace(moveComponent)
                   .Replace(moveToLine)
+                  .Replace(new AvatarComponent { view = avatar })
+                  .Replace(new InputComponent { isRight = isRight })
+                  .Replace(new TransformComponent { transform = avatar.transform })
                   .Replace(new CollisionComponent { collider = avatar.Collision });
             avatar.SetRun();
             avatar.MoveView.SetY(CalculatePositionService.CalculateYForAvatar(10, startLine));

@@ -16,10 +16,17 @@ namespace TheTalesOfTwo.Core.Avatars
         public CollisionMono Collision { get; private set; }
         
         private static readonly int isRun = Animator.StringToHash("isRun");
+        private static readonly int hurt = Animator.StringToHash("hurt");
         
         public void SetRun()
         {
             _animator.SetBool(isRun, true);
+        }
+
+        public void SetHurt()
+        {
+            _animator.SetTrigger(hurt);
+            _animator.SetBool(isRun, false);
         }
     }
 }

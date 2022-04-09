@@ -4,5 +4,6 @@
     {
         public float speed;
         public MoveView view;
+        public bool canBePaused;
     }
 }

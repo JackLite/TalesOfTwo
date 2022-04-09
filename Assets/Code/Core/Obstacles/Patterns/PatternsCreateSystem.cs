@@ -4,6 +4,7 @@ using EcsCore;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
 using TheTalesOfTwo.Core.Settings;
+using TheTalesOfTwo.Core.Time;
 
 namespace TheTalesOfTwo.Core.Obstacles.Patterns
 {
@@ -33,7 +34,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Patterns
                 delay = delay,
                 obstacles = obstacles.Select(t => t.ToString()).ToArray()
             };
-            _world.NewEntity().Replace(pattern);
+            _world.NewEntity().Replace(pattern).Replace(new TimeComponent { factor = 1 });
         }
 
         private static JArray GetObstacles(string patternRaw)

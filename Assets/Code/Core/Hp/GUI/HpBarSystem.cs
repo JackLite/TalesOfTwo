@@ -10,7 +10,7 @@ namespace TheTalesOfTwo.Core.Hp.GUI
     {
         private CoreSettings _coreSettings;
         private HpBarView _hpBar;
-        private EcsFilter<AvatarTag, HpComponent> _filter;
+        private EcsFilter<AvatarComponent, HpComponent> _filter;
 
         public void Init()
         {

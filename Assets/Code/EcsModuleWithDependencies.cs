@@ -15,7 +15,7 @@ namespace TheTalesOfTwo
             Dependencies = new Dictionary<Type, object>();
         }
 
-        protected override Dictionary<Type, object> GetDependencies()
+        public override Dictionary<Type, object> GetDependencies()
         {
             return Dependencies;
         }

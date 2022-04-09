@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EcsCore;
 using TheTalesOfTwo.Core.Avatars;
@@ -9,6 +10,7 @@ using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Obstacles;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
 using TheTalesOfTwo.Core.Settings;
+using TheTalesOfTwo.Core.Time;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -38,8 +40,9 @@ namespace TheTalesOfTwo.Core
             Dependencies[typeof(MoveSettings)] = _settings.MoveSettings;
             if (Application.isEditor)
                 World.ActivateModule<DebugModule>();
+            World.ActivateModule<ObstaclesModule>(this);
         }
-        
+
         private async Task SetupGUI()
         {
             var proxy = Object.FindObjectOfType<CoreGUIProxy>();
@@ -62,9 +65,18 @@ namespace TheTalesOfTwo.Core
         {
             if (Application.isEditor)
                 World.DeactivateModule<DebugModule>();
+            World.DeactivateModule<ObstaclesModule>();
             foreach (var resource in _resources)
                 Addressables.Release(resource);
             Addressables.Release(_scene);
+        }
+
+        protected override Dictionary<Type, int> GetSystemsOrder()
+        {
+            return new Dictionary<Type, int>
+            {
+                { typeof(TimeSystem), -10000 }
+            };
         }
     }
 }

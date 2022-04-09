@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Lines;
+using TheTalesOfTwo.Misc;
 using UnityEngine;
 
 namespace TheTalesOfTwo.Core.Move.ToLine
@@ -8,7 +9,7 @@ namespace TheTalesOfTwo.Core.Move.ToLine
     [EcsSystem(typeof(CoreModule))]
     public class MoveToLineSystem : IEcsRunSystem
     {
-        private EcsFilter<MoveComponent, MoveToLine> _filter;
+        private EcsFilter<MoveComponent, MoveToLine>.Exclude<PauseTag> _filter;
         public void Run()
         {
             foreach (var i in _filter)
@@ -43,7 +44,7 @@ namespace TheTalesOfTwo.Core.Move.ToLine
             var proceed = 1 - ml.remain;
             var factor = ml.ease.Evaluate(proceed) - proceed;
             var speed = m.speed + m.speed * factor;
-            var delta = linePosDiff * speed * Time.deltaTime;
+            var delta = linePosDiff * speed * UnityEngine.Time.deltaTime;
             return delta;
         }
     }

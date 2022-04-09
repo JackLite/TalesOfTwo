@@ -7,6 +7,7 @@ Shader "Sprites/Default"
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
         _Speed("Speed", Float) = 100
+        [HideInInspector] _IsPause("Is Paused", Float) = 0
         [MaterialToggle] _IsRight("Is Right", Float) = 0
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
@@ -44,6 +45,7 @@ Shader "Sprites/Default"
 
             float _IsRight;
             float _Speed;
+            float _IsPause;
 
             v2f SpriteVertOverride(appdata_t IN)
             {
@@ -54,7 +56,7 @@ Shader "Sprites/Default"
 
                 OUT.vertex = UnityFlipSprite(IN.vertex, _Flip);
                 OUT.vertex = UnityObjectToClipPos(OUT.vertex);
-                OUT.texcoord = IN.texcoord - float2(_Speed, 0) * (-1 + _IsRight * 2) * _Time;
+                OUT.texcoord = IN.texcoord - float2(_Speed, 0) * (-1 + _IsRight * 2) * _Time * (1 - _IsPause);
                 OUT.color = IN.color * _Color * _RendererColor;
 
                 #ifdef PIXELSNAP_ON
