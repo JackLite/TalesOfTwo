@@ -17,7 +17,6 @@ namespace TheTalesOfTwo.Core.Move
         {
             if (_hitFilter.GetEntitiesCount() > 0)
             {
-                UnityEngine.Debug.Log("HIT!");
                 foreach (var i in _filter)
                 {
                     ref var move = ref _filter.Get1(i);
@@ -28,7 +27,6 @@ namespace TheTalesOfTwo.Core.Move
 
             if (_resumeFilter.GetEntitiesCount() > 0)
             {
-                UnityEngine.Debug.Log("Resume move!");
                 foreach (var i in _pausedFilter)
                 {
                     ref var move = ref _pausedFilter.Get1(i);

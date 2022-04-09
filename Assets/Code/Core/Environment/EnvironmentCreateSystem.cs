@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Settings;
+using TheTalesOfTwo.Core.Time;
 
 namespace TheTalesOfTwo.Core.Environment
 {
@@ -25,7 +26,7 @@ namespace TheTalesOfTwo.Core.Environment
                 speed = _settings.EnvironmentSpeed,
                 spriteRenderer = _container.Left
             };
-            _ecsWorld.NewEntity().Replace(textureOffsetComponent);
+            Create(textureOffsetComponent);
         }
 
         private void CreateRight()
@@ -36,7 +37,11 @@ namespace TheTalesOfTwo.Core.Environment
                 speed = _settings.EnvironmentSpeed,
                 spriteRenderer = _container.Right
             };
-            _ecsWorld.NewEntity().Replace(textureOffsetComponent);
+            Create(textureOffsetComponent);
+        }
+        private void Create(in TextureOffsetComponent textureOffsetComponent)
+        {
+            _ecsWorld.NewEntity().Replace(textureOffsetComponent).Replace(new TimeComponent { factor = 1 });
         }
     }
 }

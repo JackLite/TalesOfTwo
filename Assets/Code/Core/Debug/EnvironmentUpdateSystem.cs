@@ -17,8 +17,7 @@ namespace TheTalesOfTwo.Core.Debug
             foreach (var i in _filter)
             {
                 ref var toc = ref _filter.Get1(i);
-                var mat = toc.spriteRenderer.material;
-                mat.SetFloat(speed, _settings.EnvironmentSpeed);
+                toc.speed = _settings.EnvironmentSpeed;
             }
         }
     }

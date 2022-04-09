@@ -23,6 +23,15 @@ namespace TheTalesOfTwo.Core.Avatars
             _animator.SetBool(isRun, true);
         }
 
+        /// <summary>
+        /// Set run animation speed
+        /// </summary>
+        /// <param name="speed">From 0 to 1</param>
+        public void SetRunSpeed(float speed)
+        {
+            _animator.speed = speed;
+        }
+
         public void SetHurt()
         {
             _animator.SetTrigger(hurt);

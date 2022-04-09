@@ -1,14 +1,10 @@
-// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
-
-Shader "Sprites/Default"
+Shader "Goldstein/Sprites/Default"
 {
     Properties
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
-        _Speed("Speed", Float) = 100
-        [HideInInspector] _IsPause("Is Paused", Float) = 0
-        [MaterialToggle] _IsRight("Is Right", Float) = 0
+        _TexOffsetX("Tex offset x", Float) = 0
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
@@ -46,6 +42,7 @@ Shader "Sprites/Default"
             float _IsRight;
             float _Speed;
             float _IsPause;
+            float _TexOffsetX;
 
             v2f SpriteVertOverride(appdata_t IN)
             {
@@ -56,7 +53,7 @@ Shader "Sprites/Default"
 
                 OUT.vertex = UnityFlipSprite(IN.vertex, _Flip);
                 OUT.vertex = UnityObjectToClipPos(OUT.vertex);
-                OUT.texcoord = IN.texcoord - float2(_Speed, 0) * (-1 + _IsRight * 2) * _Time * (1 - _IsPause);
+                OUT.texcoord = IN.texcoord - float2(0, 0) * (-1 + _IsRight * 2) * _Time * (1 - _IsPause) + float2(_TexOffsetX, 0);
                 OUT.color = IN.color * _Color * _RendererColor;
 
                 #ifdef PIXELSNAP_ON

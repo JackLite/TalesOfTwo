@@ -7,5 +7,6 @@ namespace TheTalesOfTwo.Core.Environment
         public SpriteRenderer spriteRenderer;
         public float speed;
         public bool isRight;
+        public float offset;
     }
 }
