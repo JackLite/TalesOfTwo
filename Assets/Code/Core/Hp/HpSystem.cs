@@ -2,7 +2,6 @@
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Collision;
-using TheTalesOfTwo.Core.Move;
 
 namespace TheTalesOfTwo.Core.Hp
 {

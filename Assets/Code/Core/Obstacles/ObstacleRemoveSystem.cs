@@ -1,7 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
-using TheTalesOfTwo.Core.AvatarHit;
-using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Time;
 
 namespace TheTalesOfTwo.Core.Obstacles
@@ -10,11 +9,11 @@ namespace TheTalesOfTwo.Core.Obstacles
     public class ObstacleRemoveSystem : IEcsRunLateSystem
     {
         private EcsFilter<ObstacleComponent, TimeComponent> _filter;
-        private EcsFilter<AvatarHitEvent> _hitFilter;
+        private EcsFilter<PauseEvent> _pauseFilter;
         private ObstaclesPool _pool;
         public void RunLate()
         {
-            if (_hitFilter.GetEntitiesCount() <= 0)
+            if (_pauseFilter.GetEntitiesCount() <= 0)
                 return;
 
             foreach (var i in _filter)

@@ -2,7 +2,6 @@
 {
     public struct ResumeAfterHitComponent
     {
-        public float delay;
         /// <summary>
         /// How long resume will be
         /// </summary>

@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.AvatarHit;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Time;
 using TheTalesOfTwo.Misc;
 
@@ -10,8 +11,8 @@ namespace TheTalesOfTwo.Core.Environment
     public class TextureOffsetPauseSystem : IEcsRunLateSystem
     {
         private EcsFilter<TextureOffsetComponent, TimeComponent> _filter;
-        private EcsFilter<AvatarHitEvent> _hitFilter;
-        private EcsFilter<ResumeAfterHitEvent> _resumeFilter;
+        private EcsFilter<PauseEvent> _pauseFilter;
+        private EcsFilter<UnpauseEvent> _unpauseFilter;
         public void RunLate()
         {
             CheckHit();
@@ -20,7 +21,7 @@ namespace TheTalesOfTwo.Core.Environment
 
         private void CheckHit()
         {
-            if (_hitFilter.GetEntitiesCount() > 0)
+            if (_pauseFilter.GetEntitiesCount() > 0)
             {
                 foreach (var i in _filter)
                 {
@@ -31,7 +32,7 @@ namespace TheTalesOfTwo.Core.Environment
 
         private void CheckResumeAfterHit()
         {
-            if (_resumeFilter.GetEntitiesCount() > 0)
+            if (_unpauseFilter.GetEntitiesCount() > 0)
             {
                 foreach (var i in _filter)
                 {

@@ -1,11 +1,10 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
-using TheTalesOfTwo.Core.AvatarHit;
-using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
 using TheTalesOfTwo.Core.Move.Linear;
 using TheTalesOfTwo.Core.Obstacles.Queue;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
 using UnityEngine;
@@ -19,7 +18,7 @@ namespace TheTalesOfTwo.Core.Obstacles
         private ObstaclesPool _pool;
         private CoreSettings _settings;
         private EcsFilter<ObstacleQueueComponent, TimeComponent> _filter;
-        private EcsFilter<AvatarHitEvent> _hitFilter;
+        private EcsFilter<PauseEvent> _pauseFilter;
 
         private float _lastSpawnTime;
 
@@ -52,7 +51,7 @@ namespace TheTalesOfTwo.Core.Obstacles
         }
         public void RunLate()
         {
-            if (_hitFilter.GetEntitiesCount() <= 0)
+            if (_pauseFilter.GetEntitiesCount() <= 0)
                 return;
 
             foreach (var i in _filter)

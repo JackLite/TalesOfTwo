@@ -1,9 +1,8 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
-using TheTalesOfTwo.Core.AvatarHit;
-using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Time;
 
 namespace TheTalesOfTwo.Core.Obstacles.Queue
@@ -12,7 +11,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
     public class ObstacleQueueCreateSystem : IEcsRunSystem, IEcsRunLateSystem
     {
         private EcsFilter<PatternComponent, TimeComponent> _patternsFilter;
-        private EcsFilter<AvatarHitEvent> _hitFilter;
+        private EcsFilter<PauseEvent> _pauseFilter;
         private EcsWorld _world;
         public void Run()
         {
@@ -41,7 +40,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
 
         public void RunLate()
         {
-            if (_hitFilter.GetEntitiesCount() <= 0)
+            if (_pauseFilter.GetEntitiesCount() <= 0)
                 return;
 
             foreach (var i in _patternsFilter)

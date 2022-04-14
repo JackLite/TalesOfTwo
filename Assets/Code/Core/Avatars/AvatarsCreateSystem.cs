@@ -7,6 +7,7 @@ using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
 using TheTalesOfTwo.Core.Move.ToLine;
 using TheTalesOfTwo.Core.Settings;
+using TheTalesOfTwo.Core.Time;
 using UnityEngine;
 
 namespace TheTalesOfTwo.Core.Avatars
@@ -42,8 +43,8 @@ namespace TheTalesOfTwo.Core.Avatars
             };
             var moveComponent = new MoveComponent
             {
-                view = avatar.MoveView, 
-                speed = _moveSettings.AvatarSpeed, 
+                view = avatar.MoveView,
+                speed = _moveSettings.AvatarSpeed,
                 canBePaused = true,
                 factor = 1
             };
@@ -53,7 +54,8 @@ namespace TheTalesOfTwo.Core.Avatars
                   .Replace(new AvatarComponent { view = avatar })
                   .Replace(new InputComponent { isRight = isRight })
                   .Replace(new TransformComponent { transform = avatar.transform })
-                  .Replace(new CollisionComponent { collider = avatar.Collision });
+                  .Replace(new CollisionComponent { collider = avatar.Collision })
+                  .Replace(new TimeComponent { factor = 1 });
             avatar.SetRun();
             avatar.MoveView.SetY(CalculatePositionService.CalculateYForAvatar(10, startLine));
         }

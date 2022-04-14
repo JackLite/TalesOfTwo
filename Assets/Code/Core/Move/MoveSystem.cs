@@ -2,6 +2,7 @@
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.AvatarHit;
 using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Misc;
 
 namespace TheTalesOfTwo.Core.Move
@@ -11,11 +12,11 @@ namespace TheTalesOfTwo.Core.Move
     {
         private EcsFilter<MoveComponent> _filter;
         private EcsFilter<MoveComponent, PauseTag> _pausedFilter;
-        private EcsFilter<AvatarHitEvent> _hitFilter;
-        private EcsFilter<ResumeAfterHitEvent> _resumeFilter;
+        private EcsFilter<PauseEvent> _pauseFilter;
+        private EcsFilter<UnpauseEvent> _unpauseFilter;
         public void RunLate()
         {
-            if (_hitFilter.GetEntitiesCount() > 0)
+            if (_pauseFilter.GetEntitiesCount() > 0)
             {
                 foreach (var i in _filter)
                 {
@@ -25,7 +26,7 @@ namespace TheTalesOfTwo.Core.Move
                 }
             }
 
-            if (_resumeFilter.GetEntitiesCount() > 0)
+            if (_unpauseFilter.GetEntitiesCount() > 0)
             {
                 foreach (var i in _pausedFilter)
                 {

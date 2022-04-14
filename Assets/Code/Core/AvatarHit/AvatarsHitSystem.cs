@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Collision;
 using TheTalesOfTwo.Core.Environment;
-using TheTalesOfTwo.Core.Move;
+using TheTalesOfTwo.Core.Pause;
 
 namespace TheTalesOfTwo.Core.AvatarHit
 {
@@ -32,9 +32,9 @@ namespace TheTalesOfTwo.Core.AvatarHit
 
             if (isCollide)
             {
-                _world.CreateOneFrame().Replace(new AvatarHitEvent());
-                // TODO: брать из настроек
-                _world.NewEntity().Replace(new ResumeAfterHitComponent { delay = 2, duration = 4, remain = 4});
+                _world.CreateOneFrame().Replace(new PauseEvent()).Replace(new AvatarHitEvent());
+                // TODO: брать время и прочее из настроек
+                _world.NewEntity().Replace(new UnpauseComponent { unpauseTime = UnityEngine.Time.time + 2 });
             }
         }
     }

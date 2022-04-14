@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CoreSettings
   m_EditorClassIdentifier: 
   <CoreSettings>k__BackingField:
-    <MainCameraZero>k__BackingField: {x: 100, y: 100}
     <DelayBetweenPatterns>k__BackingField: 6
-    <EnvironmentSpeed>k__BackingField: 17.77778
+    <EnvironmentSpeed>k__BackingField: 0.888889
     <ObstaclesSpeed>k__BackingField: 8.88889
+    <Health>k__BackingField: 3
   <MoveSettings>k__BackingField:
     <AvatarSpeed>k__BackingField: 5
     ease:
