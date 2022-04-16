@@ -22,6 +22,7 @@ namespace TheTalesOfTwo.StartScreen
         {
             foreach (var resource in _resources)
                 Addressables.Release(resource);
+            base.Deactivate();
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using EcsCore;
+﻿using System;
+using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
 
@@ -11,6 +13,7 @@ namespace TheTalesOfTwo.Core.Environment
         private EnvironmentContainer _container;
         private EcsWorld _ecsWorld;
         private CoreSettings _settings;
+        private EcsFilter<TextureOffsetComponent> _filter;
 
         public void PreInit()
         {
@@ -41,7 +44,10 @@ namespace TheTalesOfTwo.Core.Environment
         }
         private void Create(in TextureOffsetComponent textureOffsetComponent)
         {
-            _ecsWorld.NewEntity().Replace(textureOffsetComponent).Replace(new TimeComponent { factor = 1 });
+            _ecsWorld.NewEntity()
+                     .Replace(textureOffsetComponent)
+                     .Replace(new TimeComponent { factor = 1 })
+                     .Replace(new CleanUpTag());
         }
     }
 }

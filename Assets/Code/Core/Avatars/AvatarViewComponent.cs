@@ -1,6 +1,6 @@
 ﻿namespace TheTalesOfTwo.Core.Avatars
 {
-    public struct AvatarComponent
+    public struct AvatarViewComponent
     {
         public AvatarView view;
     }

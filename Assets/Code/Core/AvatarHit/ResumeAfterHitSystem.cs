@@ -1,9 +1,10 @@
-﻿using System;
-using EcsCore;
+﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Move;
 using TheTalesOfTwo.Core.Pause;
+using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
 
 namespace TheTalesOfTwo.Core.AvatarHit
@@ -15,8 +16,10 @@ namespace TheTalesOfTwo.Core.AvatarHit
         private EcsFilter<AvatarHitEvent> _hitFilter;
         private EcsFilter<UnpauseEvent> _unpauseFilter;
         private EcsFilter<TimeComponent> _timeFilter;
-        private EcsFilter<MoveComponent>.Exclude<AvatarComponent> _moveFilter;
+        private EcsFilter<MoveComponent>.Exclude<AvatarViewComponent> _moveFilter;
+        private CoreSettings _settings;
         private EcsWorld _world;
+
         public void Run()
         {
             if (_resumeFilter.GetEntitiesCount() == 0)
@@ -24,32 +27,42 @@ namespace TheTalesOfTwo.Core.AvatarHit
 
             if (_hitFilter.GetEntitiesCount() > 0)
             {
-                foreach (var i in _resumeFilter)
-                    _resumeFilter.GetEntity(i).Destroy();
+                DeleteResume();
                 return;
             }
-            
+
             if (_resumeFilter.GetEntitiesCount() > 1)
             {
                 _resumeFilter.GetEntity(1).Destroy();
                 UnityEngine.Debug.LogError("Resume after hit must be one!");
             }
 
-            ref var resume = ref _resumeFilter.Get1(0);
-            ProcessResume(ref resume);
+            ProcessResume();
         }
-        private void ProcessResume(ref ResumeAfterHitComponent resume)
+
+        public void RunLate()
         {
-            if (Math.Abs(resume.remain - resume.duration) < 0.00001f)
-            {
-                _world.CreateOneFrame().Replace(new ResumeAfterHitEvent());
-            }
+            if (_unpauseFilter.GetEntitiesCount() == 0)
+                return;
+            _world.NewEntity()
+                  .Replace(new ResumeAfterHitComponent
+                      { duration = _settings.HitResumeTime, remain = _settings.HitResumeTime })
+                  .Replace(new CleanUpTag());
+        }
+
+        private void DeleteResume()
+        {
+            foreach (var i in _resumeFilter)
+                _resumeFilter.GetEntity(i).Destroy();
+        }
+        private void ProcessResume()
+        {
+            ref var resume = ref _resumeFilter.Get1(0);
+
             resume.remain -= UnityEngine.Time.deltaTime;
-            if (resume.remain < 0)
-            {
-                resume.remain = 0;
-                _resumeFilter.GetEntity(0).Replace(new EcsOneFrame());
-            }
+            if (resume.remain <= 0)
+                DeleteResume();
+
             var factor = (resume.duration - resume.remain) / resume.duration;
             foreach (var i in _timeFilter)
             {
@@ -64,13 +77,7 @@ namespace TheTalesOfTwo.Core.AvatarHit
                     move.factor = factor;
             }
         }
-        public void RunLate()
-        {
-            if (_unpauseFilter.GetEntitiesCount() == 0)
-                return;
-            // TODO: брать время и прочее из настроек
 
-            _world.NewEntity().Replace(new ResumeAfterHitComponent { duration = 4, remain = 4 });
-        }
+
     }
 }

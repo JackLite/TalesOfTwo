@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Avatars;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Collision;
 using TheTalesOfTwo.Core.Environment;
 using TheTalesOfTwo.Core.Pause;
@@ -10,7 +11,7 @@ namespace TheTalesOfTwo.Core.AvatarHit
     [EcsSystem(typeof(CoreModule))]
     public class AvatarsHitSystem : IEcsRunSystem
     {
-        private EcsFilter<AvatarComponent, CollisionComponent> _filter;
+        private EcsFilter<AvatarViewComponent, CollisionComponent> _filter;
         private EcsFilter<TextureOffsetComponent> _textureOffset;
         private EcsWorld _world;
 
@@ -34,7 +35,9 @@ namespace TheTalesOfTwo.Core.AvatarHit
             {
                 _world.CreateOneFrame().Replace(new PauseEvent()).Replace(new AvatarHitEvent());
                 // TODO: брать время и прочее из настроек
-                _world.NewEntity().Replace(new UnpauseComponent { unpauseTime = UnityEngine.Time.time + 2 });
+                _world.NewEntity()
+                      .Replace(new UnpauseComponent { unpauseTime = UnityEngine.Time.time + 2 })
+                      .Replace(new CleanUpTag());
             }
         }
     }

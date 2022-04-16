@@ -18,7 +18,7 @@ namespace TheTalesOfTwo.MainMenu
         {
             _world.ActivateModule<CoreModule>();
             _mainScreen.Destroy();
-            _world.DeactivateModule<MainModule>();
+            _world.DeactivateModule<MainMenuModule>();
         }
     }
 }

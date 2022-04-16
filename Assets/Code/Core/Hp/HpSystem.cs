@@ -8,9 +8,8 @@ namespace TheTalesOfTwo.Core.Hp
     [EcsSystem(typeof(CoreModule))]
     public class HpSystem : IEcsRunSystem
     {
-        private EcsFilter<AvatarComponent, HpComponent> _hpFilter;
-        private EcsFilter<AvatarComponent, CollideTag> _collideFilter;
-        private EcsFilter<AvatarComponent> _avatars;
+        private EcsFilter<AvatarTag, HpComponent> _hpFilter;
+        private EcsFilter<AvatarViewComponent, CollideTag> _collideFilter;
         public void Run()
         {
             foreach (var i in _collideFilter)

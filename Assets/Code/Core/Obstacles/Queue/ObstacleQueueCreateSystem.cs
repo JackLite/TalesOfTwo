@@ -1,6 +1,7 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
 using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Time;
@@ -32,7 +33,8 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
                         delay = jToken.Value<float>("delay"),
                         isRight = jToken.Value<string>("direction") == "right"
                     };
-                    _world.NewEntity().Replace(obstacle).Replace(new TimeComponent { factor = 1 });
+                    _world.NewEntity().Replace(obstacle).Replace(new TimeComponent { factor = 1 })
+                          .Replace(new CleanUpTag());
                 }
                 _patternsFilter.GetEntity(i).Destroy();
             }

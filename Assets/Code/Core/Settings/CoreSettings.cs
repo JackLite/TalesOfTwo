@@ -17,5 +17,13 @@ namespace TheTalesOfTwo.Core.Settings
 
         [field:SerializeField]
         public int Health { get; private set; } = 3;
+
+        [field:Header("HitSettings")]
+        [field:SerializeField]
+        public float HitPauseTime { get; private set; } = 2;
+        
+        [field:SerializeField]
+        public float HitResumeTime { get; private set; } = 4;
+
     }
 }

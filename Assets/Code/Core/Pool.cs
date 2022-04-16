@@ -44,6 +44,7 @@ namespace TheTalesOfTwo.Core
             {
                 Addressables.ReleaseInstance(t.gameObject);
             }
+            _pool.Clear();
         }
     }
 }

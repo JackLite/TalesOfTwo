@@ -1,7 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Misc;
-using UnityEngine;
 
 namespace TheTalesOfTwo.Core.Move.Linear
 {

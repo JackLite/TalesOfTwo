@@ -1,5 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
 using TheTalesOfTwo.Core.Move.Linear;
@@ -45,7 +46,8 @@ namespace TheTalesOfTwo.Core.Obstacles
                 _world.NewEntity()
                       .Replace(moveComponent)
                       .Replace(new ObstacleComponent { obstacleView = view, lifetime = 20 })
-                      .Replace(new MoveLinear { direction = queue.isRight ? Vector2.right : Vector2.left });
+                      .Replace(new MoveLinear { direction = queue.isRight ? Vector2.right : Vector2.left })
+                      .Replace(new CleanUpTag());
                 _filter.GetEntity(i).Destroy();
             }
         }

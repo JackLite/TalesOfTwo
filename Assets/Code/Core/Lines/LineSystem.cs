@@ -1,5 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Settings;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace TheTalesOfTwo.Core.Lines
             {
                 var line = new LineTopBorder { line = i };
                 var t = new TransformComponent { transform = _linesPool.Get() };
-                _world.NewEntity().Replace(t).Replace(line);
+                _world.NewEntity().Replace(t).Replace(line).Replace(new CleanUpTag());
             }
         }
         public void Init()

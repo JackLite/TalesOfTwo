@@ -10,7 +10,7 @@ namespace TheTalesOfTwo.Core.Avatars
     public class AvatarResumeMoveSystem : IEcsRunSystem, IEcsRunLateSystem
     {
         private EcsFilter<UnpauseEvent> _unpauseFilter;
-        private EcsFilter<AvatarComponent, MoveComponent, TimeComponent> _moveFilter;    
+        private EcsFilter<AvatarViewComponent, MoveComponent, TimeComponent> _moveFilter;    
         public void RunLate()
         {
             if (_unpauseFilter.GetEntitiesCount() <= 0)

@@ -45,6 +45,10 @@ MonoBehaviour:
     m_Address: patterns
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: StartScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 18790eb0d83af284b9c5d4ed392a7e51, type: 2}
   m_SchemaSet:

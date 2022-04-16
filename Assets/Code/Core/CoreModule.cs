@@ -5,6 +5,7 @@ using EcsCore;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Debug;
 using TheTalesOfTwo.Core.Environment;
+using TheTalesOfTwo.Core.GameOver.GUI;
 using TheTalesOfTwo.Core.Hp.GUI;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Obstacles;
@@ -47,6 +48,7 @@ namespace TheTalesOfTwo.Core
         {
             var proxy = Object.FindObjectOfType<CoreGUIProxy>();
             Dependencies[typeof(HpBarView)] = proxy.HpBarView;
+            Dependencies[typeof(GameOverScreenView)] = proxy.GameOverScreen;
             await Task.CompletedTask;
         }
 
@@ -66,9 +68,14 @@ namespace TheTalesOfTwo.Core
             if (Application.isEditor)
                 World.DeactivateModule<DebugModule>();
             World.DeactivateModule<ObstaclesModule>();
+
             foreach (var resource in _resources)
                 Addressables.Release(resource);
-            Addressables.Release(_scene);
+            _resources.Clear();
+
+            if (_scene.Scene.isLoaded)
+                Addressables.Release(_scene);
+            base.Deactivate();
         }
 
         protected override Dictionary<Type, int> GetSystemsOrder()

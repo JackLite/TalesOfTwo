@@ -1,5 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
+using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Collision;
 using TheTalesOfTwo.Core.Hp;
 using TheTalesOfTwo.Core.Input;
@@ -22,13 +23,17 @@ namespace TheTalesOfTwo.Core.Avatars
         private AvatarsContainer _avatarsContainer;
         private MoveSettings _moveSettings;
         private CoreSettings _coreSettings;
+        private EcsFilter<AvatarViewComponent> _filter;
 
         public void PreInit()
         {
             Create(_avatarsContainer.LeftAvatar);
             Create(_avatarsContainer.RightAvatar, true);
 
-            _world.NewEntity().Replace(new HpComponent(_coreSettings.Health)).Replace(new AvatarComponent());
+            _world.NewEntity()
+                  .Replace(new HpComponent(_coreSettings.Health))
+                  .Replace(new AvatarTag())
+                  .Replace(new CleanUpTag());
         }
 
         private void Create(AvatarView avatar, bool isRight = false)
@@ -51,11 +56,12 @@ namespace TheTalesOfTwo.Core.Avatars
             _world.NewEntity()
                   .Replace(moveComponent)
                   .Replace(moveToLine)
-                  .Replace(new AvatarComponent { view = avatar })
+                  .Replace(new AvatarViewComponent { view = avatar })
                   .Replace(new InputComponent { isRight = isRight })
                   .Replace(new TransformComponent { transform = avatar.transform })
                   .Replace(new CollisionComponent { collider = avatar.Collision })
-                  .Replace(new TimeComponent { factor = 1 });
+                  .Replace(new TimeComponent { factor = 1 })
+                  .Replace(new CleanUpTag());
             avatar.SetRun();
             avatar.MoveView.SetY(CalculatePositionService.CalculateYForAvatar(10, startLine));
         }

@@ -1,4 +1,5 @@
-﻿using TheTalesOfTwo.Core.Hp.GUI;
+﻿using TheTalesOfTwo.Core.GameOver.GUI;
+using TheTalesOfTwo.Core.Hp.GUI;
 using UnityEngine;
 
 namespace TheTalesOfTwo.Core
@@ -7,5 +8,8 @@ namespace TheTalesOfTwo.Core
     {
         [field:SerializeField]
         public HpBarView HpBarView { get; private set; }
+        
+        [field:SerializeField]
+        public GameOverScreenView GameOverScreen { get; private set; }
     }
 }
