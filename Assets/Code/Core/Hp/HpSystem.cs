@@ -2,6 +2,7 @@
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Collision;
+using Unity.Mathematics;
 
 namespace TheTalesOfTwo.Core.Hp
 {
@@ -17,7 +18,7 @@ namespace TheTalesOfTwo.Core.Hp
                 foreach (var j in _hpFilter)
                 {
                     ref var hp = ref _hpFilter.Get2(j);
-                    hp.currentHp--;
+                    hp.currentHp = math.max(hp.currentHp - 1, 0);
                 }
                 _collideFilter.GetEntity(i).Del<CollideTag>();
                 ref var avatar = ref _collideFilter.Get1(i);

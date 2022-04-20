@@ -16,31 +16,35 @@ namespace TheTalesOfTwo.Core.Obstacles.Patterns
         private PatternsRawContainer _container;
         private EcsWorld _world;
         private CoreSettings _settings;
+        private EcsOneData<ObstaclesOneData> _obstaclesData;
         public void PreInit()
         {
             var delay = 0f;
+            ref var obstaclesOneData = ref _obstaclesData.GetData();
             for (var i = 0; i < PATTERNS_COUNT; ++i)
             {
                 var patternRaw = _container.GetRandom();
-                var obstacles = GetObstacles(patternRaw);
-                CreatePattern(delay, obstacles);
+                var obstacleGroups = GetObstacleGroups(patternRaw);
+                obstaclesOneData.totalCount += obstacleGroups.Count;
+                CreatePattern(delay, obstacleGroups);
                 delay += _settings.DelayBetweenPatterns;
             }
+            obstaclesOneData.remainCount = obstaclesOneData.totalCount;
         }
 
-        private void CreatePattern(float delay, JArray obstacles)
+        private void CreatePattern(float delay, JArray obstacleGroups)
         {
             var pattern = new PatternComponent
             {
                 delay = delay,
-                obstacles = obstacles.Select(t => t.ToString()).ToArray()
+                obstacleGroups = obstacleGroups.Select(t => t.ToString()).ToArray()
             };
             _world.NewEntity().Replace(pattern).Replace(new TimeComponent { factor = 1 }).Replace(new CleanUpTag());
         }
 
-        private static JArray GetObstacles(string patternRaw)
+        private static JArray GetObstacleGroups(string patternRaw)
         {
-            var obstacles = JToken.Parse(patternRaw).Value<JArray>("obstacles");
+            var obstacles = JToken.Parse(patternRaw).Value<JArray>("obstacle_groups");
             if (obstacles == null)
                 throw new NullReferenceException("Can't find obstacles in " + patternRaw);
             return obstacles;

@@ -30,13 +30,22 @@ namespace TheTalesOfTwo.Core.Input
                 ref var l = ref _filter.Get2(i);
                 if (l.toLine != l.fromLine)
                     continue;
+                
                 var action = input.isRight ? "MoveRight" : "MoveLeft";
-                var val = _playerInput.FindAction(action).ReadValue<float>();
+                var inputAction = _playerInput.FindAction(action);
+                if (!inputAction.IsPressed())
+                    input.isWasRead = false;
+
+                if (input.isWasRead)
+                    continue;
+
+                var val = inputAction.ReadValue<float>();
                 if (val == 0)
                     continue;
                 l.toLine += val > 0 ? 1 : -1;
                 l.toLine = Mathf.Clamp(l.toLine, 1, 3);
                 l.remain = 1;
+                input.isWasRead = true;
             }
         }
     }

@@ -13,6 +13,11 @@ namespace TheTalesOfTwo.Core.Move
         public void SetVelocity(Vector2 velocity)
         {
             // _rigid.velocity = velocity;
+            if (float.IsNaN(velocity.x) || float.IsNaN(velocity.y))
+            {
+                UnityEngine.Debug.LogError("WTF?!");
+                return;
+            }
             transform.position += new Vector3(velocity.x, velocity.y, 0);
         }
 

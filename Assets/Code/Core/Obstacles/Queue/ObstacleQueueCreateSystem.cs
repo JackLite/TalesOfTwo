@@ -24,17 +24,25 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
                 if (pattern.delay > 0)
                     continue;
 
-                foreach (var rawObstacle in pattern.obstacles)
+                foreach (var rawObstacle in pattern.obstacleGroups)
                 {
                     var jToken = JToken.Parse(rawObstacle);
-                    var obstacle = new ObstacleQueueComponent
+                    var delay = jToken.Value<float>("delay");
+                    var obstacles = jToken.Value<JArray>("obstacles");
+                    if (obstacles == null)
+                        continue;
+                    foreach (var t in obstacles)
                     {
-                        line = jToken.Value<int>("line"),
-                        delay = jToken.Value<float>("delay"),
-                        isRight = jToken.Value<string>("direction") == "right"
-                    };
-                    _world.NewEntity().Replace(obstacle).Replace(new TimeComponent { factor = 1 })
-                          .Replace(new CleanUpTag());
+                        var obstacle = new ObstacleQueueComponent
+                        {
+                            line = t.Value<int>("line"),
+                            delay = delay,
+                            isRight = t.Value<string>("direction") == "right"
+                        };
+                        _world.NewEntity().Replace(obstacle).Replace(new TimeComponent { factor = 1 })
+                              .Replace(new CleanUpTag());
+                    }
+                    
                 }
                 _patternsFilter.GetEntity(i).Destroy();
             }

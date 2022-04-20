@@ -9,19 +9,12 @@ namespace TheTalesOfTwo.Core.Obstacles
     public class ObstacleRemoveSystem : IEcsRunLateSystem
     {
         private EcsFilter<ObstacleComponent, TimeComponent> _filter;
+        private EcsOneData<ObstaclesOneData> _obstaclesData;
         private EcsFilter<PauseEvent> _pauseFilter;
         private ObstaclesPool _pool;
         public void RunLate()
         {
-            if (_pauseFilter.GetEntitiesCount() <= 0)
-                return;
-
-            foreach (var i in _filter)
-            {
-                ref var time = ref _filter.Get2(i);
-                time.factor = 0;
-            }
-
+            ref var obstaclesData = ref _obstaclesData.GetData();
             foreach (var i in _filter)
             {
                 ref var obstacle = ref _filter.Get1(i);
@@ -31,6 +24,7 @@ namespace TheTalesOfTwo.Core.Obstacles
                 {
                     _pool.Return(obstacle.obstacleView);
                     _filter.GetEntity(i).Destroy();
+                    obstaclesData.remainCount--;
                 }
             }
         }

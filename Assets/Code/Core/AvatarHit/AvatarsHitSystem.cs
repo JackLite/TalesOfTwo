@@ -11,7 +11,7 @@ namespace TheTalesOfTwo.Core.AvatarHit
     [EcsSystem(typeof(CoreModule))]
     public class AvatarsHitSystem : IEcsRunSystem
     {
-        private EcsFilter<AvatarViewComponent, CollisionComponent> _filter;
+        private EcsFilter<AvatarViewComponent, CollisionComponent>.Exclude<CollideTag> _filter;
         private EcsFilter<TextureOffsetComponent> _textureOffset;
         private EcsWorld _world;
 
@@ -26,7 +26,6 @@ namespace TheTalesOfTwo.Core.AvatarHit
 
                 collision.isCollide = false;
                 collision.collider.StopUntilExit();
-                UnityEngine.Debug.Log("Collide!");
                 _filter.GetEntity(i).Replace(new CollideTag());
                 isCollide = true;
             }

@@ -7,6 +7,7 @@ using TheTalesOfTwo.Core.Debug;
 using TheTalesOfTwo.Core.Environment;
 using TheTalesOfTwo.Core.GameOver.GUI;
 using TheTalesOfTwo.Core.Hp.GUI;
+using TheTalesOfTwo.Core.LevelProgress.GUI;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Obstacles;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
@@ -28,6 +29,7 @@ namespace TheTalesOfTwo.Core
 
         protected override async Task Setup()
         {
+            OneDataDict[typeof(ObstaclesOneData)] = new EcsOneData<ObstaclesOneData>(true);
             if (SceneManager.GetActiveScene().name != "Core")
                 _scene = await Addressables.LoadSceneAsync("CoreScene").Task;
             _settings = await Addressables.LoadAssetAsync<CoreSettingsContainer>("CoreSettings").Task;
@@ -49,6 +51,7 @@ namespace TheTalesOfTwo.Core
             var proxy = Object.FindObjectOfType<CoreGUIProxy>();
             Dependencies[typeof(HpBarView)] = proxy.HpBarView;
             Dependencies[typeof(GameOverScreenView)] = proxy.GameOverScreen;
+            Dependencies[typeof(LevelProgressView)] = proxy.LevelProgressView;
             await Task.CompletedTask;
         }
 

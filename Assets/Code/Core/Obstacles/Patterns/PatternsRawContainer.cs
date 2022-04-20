@@ -29,7 +29,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Patterns
         /// </summary>
         public string GetRandom()
         {
-            return _patterns[_random.NextInt(0, _patterns.Length)];
+            return _patterns[2];
         }
     }
 }

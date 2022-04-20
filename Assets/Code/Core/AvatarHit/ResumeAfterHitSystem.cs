@@ -60,10 +60,16 @@ namespace TheTalesOfTwo.Core.AvatarHit
             ref var resume = ref _resumeFilter.Get1(0);
 
             resume.remain -= UnityEngine.Time.deltaTime;
+            float factor;
             if (resume.remain <= 0)
+            {
                 DeleteResume();
-
-            var factor = (resume.duration - resume.remain) / resume.duration;
+                factor = 1;
+            }
+            else
+            {
+                factor = (resume.duration - resume.remain) / resume.duration;
+            }
             foreach (var i in _timeFilter)
             {
                 ref var time = ref _timeFilter.Get1(i);

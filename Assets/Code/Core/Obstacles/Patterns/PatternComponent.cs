@@ -2,7 +2,7 @@
 {
     public struct PatternComponent
     {
-        public string[] obstacles;
+        public string[] obstacleGroups;
         /// <summary>
         /// Задержка от старта уровня
         /// </summary>

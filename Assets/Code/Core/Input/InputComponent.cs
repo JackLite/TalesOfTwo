@@ -4,5 +4,6 @@
     {
         public float val;
         public bool isRight;
+        public bool isWasRead;
     }
 }

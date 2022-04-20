@@ -45,7 +45,8 @@ namespace TheTalesOfTwo.Core.Obstacles
                 };
                 _world.NewEntity()
                       .Replace(moveComponent)
-                      .Replace(new ObstacleComponent { obstacleView = view, lifetime = 20 })
+                      .Replace(new ObstacleComponent { obstacleView = view, lifetime = 10 })
+                      .Replace(new TimeComponent {factor = 1})
                       .Replace(new MoveLinear { direction = queue.isRight ? Vector2.right : Vector2.left })
                       .Replace(new CleanUpTag());
                 _filter.GetEntity(i).Destroy();

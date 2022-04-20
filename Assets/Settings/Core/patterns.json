@@ -1,82 +1,263 @@
 ﻿{
   "patterns": [
     {
-      "obstacles": [
+      "id": "test_pattern_1",
+      "obstacle_groups": [
         {
-          "line": 1,
           "delay": 0,
-          "type": "tree",
-          "direction": "right"
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         },
         {
-          "line": 1,
-          "delay": 0,
-          "type": "tree",
-          "direction": "left"
-        },
-        {
-          "line": 2,
           "delay": 1,
-          "type": "tree",
-          "direction": "right"
+          "obstacles": [
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         },
         {
-          "line": 2,
-          "delay": 1,
-          "type": "tree",
-          "direction": "left"
-        },
-        {
-          "line": 2,
           "delay": 2,
-          "type": "tree",
-          "direction": "right"
-        },
-        {
-          "line": 3,
-          "delay": 2,
-          "type": "tree",
-          "direction": "left"
+          "obstacles": [
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         }
       ]
     },
     {
-      "obstacles": [
+      "id": "test_pattern_2",
+      "obstacle_groups": [
         {
-          "line": 3,
           "delay": 0,
-          "type": "tree",
-          "direction": "right"
+          "obstacles": [
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         },
         {
-          "line": 3,
+          "delay": 1,
+          "obstacles": [
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
+        },
+        {
+          "delay": 2,
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pattern_1",
+      "obstacle_groups": [
+        {
           "delay": 0,
-          "type": "tree",
-          "direction": "left"
+          "obstacles": [
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
         },
         {
-          "line": 2,
-          "delay": 1,
-          "type": "tree",
-          "direction": "right"
+          "delay": 0.75,
+          "obstacles": [
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
         },
         {
-          "line": 2,
-          "delay": 1,
-          "type": "tree",
-          "direction": "left"
+          "delay": 1.25,
+          "obstacles": [
+
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "right"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         },
         {
-          "line": 1,
+          "delay": 1.5,
+          "obstacles": [
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
+        },
+        {
+          "delay": 1.75,
+          "obstacles": [
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
+        },
+        {
           "delay": 2,
-          "type": "tree",
-          "direction": "right"
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
         },
         {
-          "line": 2,
-          "delay": 2,
-          "type": "tree",
-          "direction": "left"
+          "delay": 2.25,
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
+        },
+        {
+          "delay": 2.5,
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "left"
+            }
+          ]
+        },
+        {
+          "delay": 2.75,
+          "obstacles": [
+            {
+              "line": 2,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
+        },
+        {
+          "delay": 3,
+          "obstacles": [
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 1,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
         }
       ]
     }
