@@ -9,9 +9,9 @@ using TheTalesOfTwo.Core.Time;
 namespace TheTalesOfTwo.Core.Obstacles.Queue
 {
     [EcsSystem(typeof(ObstaclesModule))]
-    public class ObstacleQueueCreateSystem : IEcsRunSystem, IEcsRunLateSystem
+    public class ObstacleQueueCreateSystem : IEcsRunSystem
     {
-        private EcsFilter<PatternComponent, TimeComponent> _patternsFilter;
+        private EcsFilter<PatternComponent> _patternsFilter;
         private EcsFilter<PauseEvent> _pauseFilter;
         private EcsWorld _world;
         public void Run()
@@ -19,9 +19,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
             foreach (var i in _patternsFilter)
             {
                 ref var pattern = ref _patternsFilter.Get1(i);
-                ref var time = ref _patternsFilter.Get2(i);
-                pattern.delay -= time.deltaTime * time.factor;
-                if (pattern.delay > 0)
+                if (!pattern.isReady)
                     continue;
 
                 foreach (var rawObstacle in pattern.obstacleGroups)
@@ -39,24 +37,12 @@ namespace TheTalesOfTwo.Core.Obstacles.Queue
                             delay = delay,
                             isRight = t.Value<string>("direction") == "right"
                         };
-                        _world.NewEntity().Replace(obstacle).Replace(new TimeComponent { factor = 1 })
+                        _world.NewEntity()
+                              .Replace(obstacle)
+                              .Replace(new TimeComponent { factor = 1 })
                               .Replace(new CleanUpTag());
                     }
-                    
                 }
-                _patternsFilter.GetEntity(i).Destroy();
-            }
-        }
-
-        public void RunLate()
-        {
-            if (_pauseFilter.GetEntitiesCount() <= 0)
-                return;
-
-            foreach (var i in _patternsFilter)
-            {
-                ref var time = ref _patternsFilter.Get2(i);
-                time.factor = 0;
             }
         }
     }

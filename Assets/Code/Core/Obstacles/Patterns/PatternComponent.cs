@@ -7,5 +7,6 @@
         /// Задержка от старта уровня
         /// </summary>
         public float delay;
+        public bool isReady;
     }
 }

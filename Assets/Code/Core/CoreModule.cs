@@ -6,6 +6,7 @@ using TheTalesOfTwo.Core.Avatars;
 using TheTalesOfTwo.Core.Debug;
 using TheTalesOfTwo.Core.Environment;
 using TheTalesOfTwo.Core.GameOver.GUI;
+using TheTalesOfTwo.Core.Hints;
 using TheTalesOfTwo.Core.Hp.GUI;
 using TheTalesOfTwo.Core.LevelProgress.GUI;
 using TheTalesOfTwo.Core.Lines;
@@ -52,6 +53,7 @@ namespace TheTalesOfTwo.Core
             Dependencies[typeof(HpBarView)] = proxy.HpBarView;
             Dependencies[typeof(GameOverScreenView)] = proxy.GameOverScreen;
             Dependencies[typeof(LevelProgressView)] = proxy.LevelProgressView;
+            Dependencies[typeof(HintsView)] = proxy.HintsView;
             await Task.CompletedTask;
         }
 

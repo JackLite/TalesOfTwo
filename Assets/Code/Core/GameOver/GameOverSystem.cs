@@ -19,6 +19,7 @@ namespace TheTalesOfTwo.Core.GameOver
             if (hp.currentHp > 0)
                 return;
 
+            _filter.GetEntity(0).Del<HpComponent>();
             _world.CreateOneFrame().Replace(new GameOverEvent());
         }
     }

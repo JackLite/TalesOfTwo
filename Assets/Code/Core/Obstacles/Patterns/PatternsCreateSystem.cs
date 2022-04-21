@@ -44,7 +44,7 @@ namespace TheTalesOfTwo.Core.Obstacles.Patterns
 
         private static JArray GetObstacleGroups(string patternRaw)
         {
-            var obstacles = JToken.Parse(patternRaw).Value<JArray>("obstacle_groups");
+            var obstacles = JToken.Parse(patternRaw).Value<JArray>("groups");
             if (obstacles == null)
                 throw new NullReferenceException("Can't find obstacles in " + patternRaw);
             return obstacles;

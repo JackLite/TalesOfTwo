@@ -2,7 +2,7 @@
   "patterns": [
     {
       "id": "test_pattern_1",
-      "obstacle_groups": [
+      "groups": [
         {
           "delay": 0,
           "obstacles": [
@@ -52,7 +52,7 @@
     },
     {
       "id": "test_pattern_2",
-      "obstacle_groups": [
+      "groups": [
         {
           "delay": 0,
           "obstacles": [
@@ -102,7 +102,7 @@
     },
     {
       "id": "pattern_1",
-      "obstacle_groups": [
+      "groups": [
         {
           "delay": 0,
           "obstacles": [
@@ -125,6 +125,18 @@
               "line": 2,
               "type": "tree",
               "direction": "right"
+            }
+          ],
+          "hints": [
+            {
+              "line": 1,
+              "side": "left",
+              "direction": "bottom"
+            },
+            {
+              "line": 1,
+              "side": "right",
+              "direction": "bottom"
             }
           ]
         },
