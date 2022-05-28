@@ -44,7 +44,6 @@ namespace TheTalesOfTwo.Core
             Dependencies[typeof(MoveSettings)] = _settings.MoveSettings;
             if (Application.isEditor)
                 World.ActivateModule<DebugModule>();
-            World.ActivateModule<ObstaclesModule>(this);
         }
 
         private async Task SetupGUI()
@@ -68,7 +67,7 @@ namespace TheTalesOfTwo.Core
             await proxy.ObstaclesPool.WarmUp(10); //TODO: 10 - число наугад, вынести в настройки уровня
         }
 
-        public override void Deactivate()
+        public override void OnDeactivate()
         {
             if (Application.isEditor)
                 World.DeactivateModule<DebugModule>();
@@ -80,7 +79,6 @@ namespace TheTalesOfTwo.Core
 
             if (_scene.Scene.isLoaded)
                 Addressables.Release(_scene);
-            base.Deactivate();
         }
 
         protected override Dictionary<Type, int> GetSystemsOrder()

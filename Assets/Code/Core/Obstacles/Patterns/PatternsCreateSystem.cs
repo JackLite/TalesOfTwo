@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using TheTalesOfTwo.Core.Cleanup;
 using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
+using Unity.Mathematics;
 
 namespace TheTalesOfTwo.Core.Obstacles.Patterns
 {
@@ -27,9 +28,20 @@ namespace TheTalesOfTwo.Core.Obstacles.Patterns
                 var obstacleGroups = GetObstacleGroups(patternRaw);
                 obstaclesOneData.totalCount += obstacleGroups.Count;
                 CreatePattern(delay, obstacleGroups);
-                delay += _settings.DelayBetweenPatterns;
+                delay += _settings.DelayBetweenPatterns + GetMaxDelay(obstacleGroups);
             }
             obstaclesOneData.remainCount = obstaclesOneData.totalCount;
+        }
+
+        private float GetMaxDelay(JArray obstaclesGroup)
+        {
+            var res = 0f;
+            foreach (var token in obstaclesGroup)
+            {
+                var delay = token.Value<float>("delay");
+                res = math.max(res, delay);
+            }
+            return res;
         }
 
         private void CreatePattern(float delay, JArray obstacleGroups)

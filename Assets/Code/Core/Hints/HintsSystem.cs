@@ -3,20 +3,26 @@ using EcsCore;
 using Leopotam.Ecs;
 using Newtonsoft.Json.Linq;
 using TheTalesOfTwo.Core.Cleanup;
+using TheTalesOfTwo.Core.Input;
+using TheTalesOfTwo.Core.Move.ToLine;
 using TheTalesOfTwo.Core.Obstacles;
 using TheTalesOfTwo.Core.Obstacles.Patterns;
+using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
+using UnityEngine;
 
 namespace TheTalesOfTwo.Core.Hints
 {
     [EcsSystem(typeof(ObstaclesModule))]
-    public class HintsSystem : IEcsInitSystem, IEcsRunSystem
+    public class HintsSystem : IEcsInitSystem, IEcsRunSystem, IEcsRunLateSystem
     {
         private HintsView _hintsView;
         private CoreSettings _coreSettings;
         private EcsFilter<PatternComponent> _patterns;
         private EcsFilter<HintComponent, TimeComponent> _hints;
+        private EcsFilter<PauseEvent> _pauseFilter;
+        private EcsFilter<InputComponent, MoveToLine> _input;
         private EcsWorld _world;
         public void Init()
         {
@@ -39,10 +45,38 @@ namespace TheTalesOfTwo.Core.Hints
                 if (hint.delay > 0)
                     continue;
 
-                if (hint.isRight)
-                    _hintsView.ShowRight(hint.line, hint.isTop);
-                else
-                    _hintsView.ShowLeft(hint.line, hint.isTop);
+                if (!hint.isShown)
+                {
+                    if (hint.isRight)
+                    {
+                        _hintsView.ShowRight(hint.line, hint.isTop);
+                        /*foreach (var j in _input)
+                        {
+                            ref var input = ref _input.Get1(j);
+                            if (!input.isRight)
+                                continue;
+                            ref var l = ref _input.Get2(j);
+                            l.toLine += hint.isTop ? 1 : -1;
+                            l.toLine = Mathf.Clamp(l.toLine, 1, 3);
+                            l.remain = 1;
+                        }*/
+                    }
+                    else
+                    {
+                        _hintsView.ShowLeft(hint.line, hint.isTop);
+                        /*foreach (var j in _input)
+                        {
+                            ref var input = ref _input.Get1(j);
+                            if (input.isRight)
+                                continue;
+                            ref var l = ref _input.Get2(j);
+                            l.toLine += hint.isTop ? 1 : -1;
+                            l.toLine = Mathf.Clamp(l.toLine, 1, 3);
+                            l.remain = 1;
+                        }*/
+                    }
+                    hint.isShown = true;
+                }
 
                 hint.duration -= time.factor * time.deltaTime;
 
@@ -78,15 +112,26 @@ namespace TheTalesOfTwo.Core.Hints
                               .Replace(new HintComponent
                               {
                                   line = t.Value<int>("line"),
-                                  delay = delay + 2,
+                                  delay = delay + _coreSettings.HintsDelay,
                                   isRight = t.Value<string>("side") == "right",
-                                  duration = 1f,
+                                  duration = _coreSettings.HintsLifetime,
                                   isTop = t.Value<string>("direction") == "top"
                               })
                               .Replace(new TimeComponent { factor = 1 })
                               .Replace(new CleanUpTag());
                     }
                 }
+            }
+        }
+        public void RunLate()
+        {
+            if (_pauseFilter.GetEntitiesCount() == 0)
+                return;
+
+            foreach (var i in _hints)
+            {
+                ref var time = ref _hints.Get2(i);
+                time.factor = 0;
             }
         }
     }

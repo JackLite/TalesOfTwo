@@ -1,4 +1,5 @@
 ﻿using EcsCore;
+using EcsCore.DependencyInjection;
 using Leopotam.Ecs;
 using TheTalesOfTwo.Core.Pause;
 using TheTalesOfTwo.Core.Time;
@@ -12,6 +13,14 @@ namespace TheTalesOfTwo.Core.Obstacles
         private EcsOneData<ObstaclesOneData> _obstaclesData;
         private EcsFilter<PauseEvent> _pauseFilter;
         private ObstaclesPool _pool;
+
+        [Setup]
+        public void Setup(EcsOneData<ObstaclesOneData> od, ObstaclesPool p)
+        {
+            _obstaclesData = od;
+            _pool = p;
+        }
+        
         public void RunLate()
         {
             ref var obstaclesData = ref _obstaclesData.GetData();

@@ -141,7 +141,7 @@
           ]
         },
         {
-          "delay": 0.75,
+          "delay": 0.5,
           "obstacles": [
             {
               "line": 3,
@@ -157,9 +157,29 @@
               "line": 2,
               "type": "tree",
               "direction": "left"
-            },
+            }
+          ]
+        },
+        {
+          "delay": 0.75,
+          "obstacles": [
             {
               "line": 2,
+              "type": "tree",
+              "direction": "right"
+            }
+          ]
+        },
+        {
+          "delay": 1,
+          "obstacles": [
+            {
+              "line": 3,
+              "type": "tree",
+              "direction": "left"
+            },
+            {
+              "line": 3,
               "type": "tree",
               "direction": "right"
             }
@@ -168,21 +188,17 @@
         {
           "delay": 1.25,
           "obstacles": [
-
             {
-              "line": 3,
+              "line": 1,
               "type": "tree",
               "direction": "left"
-            },
+            }
+          ],
+          "hints": [
             {
-              "line": 3,
-              "type": "tree",
-              "direction": "right"
-            },
-            {
-              "line": 2,
-              "type": "tree",
-              "direction": "left"
+              "line": 1,
+              "side": "left",
+              "direction": "top"
             }
           ]
         },
@@ -190,9 +206,16 @@
           "delay": 1.5,
           "obstacles": [
             {
-              "line": 2,
+              "line": 1,
               "type": "tree",
               "direction": "right"
+            }
+          ],
+          "hints": [
+            {
+              "line": 1,
+              "side": "right",
+              "direction": "top"
             }
           ]
         },
@@ -200,14 +223,21 @@
           "delay": 1.75,
           "obstacles": [
             {
-              "line": 3,
+              "line": 1,
               "type": "tree",
               "direction": "left"
             },
             {
-              "line": 3,
+              "line": 2,
               "type": "tree",
-              "direction": "right"
+              "direction": "left"
+            }
+          ],
+          "hints": [
+            {
+              "line": 2,
+              "side": "left",
+              "direction": "top"
             }
           ]
         },
@@ -215,49 +245,21 @@
           "delay": 2,
           "obstacles": [
             {
-              "line": 1,
+              "line": 2,
               "type": "tree",
-              "direction": "left"
+              "direction": "right"
+            }
+          ],
+          "hints": [
+            {
+              "line": 2,
+              "side": "right",
+              "direction": "top"
             }
           ]
         },
         {
           "delay": 2.25,
-          "obstacles": [
-            {
-              "line": 1,
-              "type": "tree",
-              "direction": "right"
-            }
-          ]
-        },
-        {
-          "delay": 2.5,
-          "obstacles": [
-            {
-              "line": 1,
-              "type": "tree",
-              "direction": "left"
-            },
-            {
-              "line": 2,
-              "type": "tree",
-              "direction": "left"
-            }
-          ]
-        },
-        {
-          "delay": 2.75,
-          "obstacles": [
-            {
-              "line": 2,
-              "type": "tree",
-              "direction": "right"
-            }
-          ]
-        },
-        {
-          "delay": 3,
           "obstacles": [
             {
               "line": 1,

@@ -1,7 +1,6 @@
 ﻿using EcsCore;
 using Leopotam.Ecs;
 using TheTalesOfTwo.MainMenu;
-using TheTalesOfTwo.StartScreen;
 
 namespace TheTalesOfTwo.Core.GameOver.GUI
 {

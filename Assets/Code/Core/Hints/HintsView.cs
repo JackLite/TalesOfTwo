@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.Mathematics;
+using UnityEngine;
 
 namespace TheTalesOfTwo.Core.Hints
 {
@@ -13,6 +14,9 @@ namespace TheTalesOfTwo.Core.Hints
 
         private int _lines = 3;
         private RectTransform _parentRect;
+        private int _showCounterLeft;
+        private int _showCounterRight;
+
         private void Awake()
         {
             _parentRect = GetComponent<RectTransform>();
@@ -22,15 +26,17 @@ namespace TheTalesOfTwo.Core.Hints
         {
             _lines = lines;
         }
-        
+
         public void ShowLeft(int line, bool isTop)
         {
             Show(left, line, isTop);
+            _showCounterLeft++;
         }
 
         public void ShowRight(int line, bool isTop)
         {
             Show(right, line, isTop);
+            _showCounterRight++;
         }
 
         private void Show(RectTransform arrow, int line, bool isTop)
@@ -47,12 +53,16 @@ namespace TheTalesOfTwo.Core.Hints
 
         public void HideLeft()
         {
-            left.gameObject.SetActive(false);
+            _showCounterLeft = math.max(_showCounterLeft - 1, 0);
+            if (_showCounterLeft == 0)
+                left.gameObject.SetActive(false);
         }
 
         public void HideRight()
         {
-            right.gameObject.SetActive(false);
+            _showCounterRight = math.max(_showCounterRight - 1, 0);
+            if (_showCounterRight == 0)
+                right.gameObject.SetActive(false);
         }
     }
 }

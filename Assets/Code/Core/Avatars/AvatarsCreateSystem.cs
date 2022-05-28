@@ -7,6 +7,7 @@ using TheTalesOfTwo.Core.Input;
 using TheTalesOfTwo.Core.Lines;
 using TheTalesOfTwo.Core.Move;
 using TheTalesOfTwo.Core.Move.ToLine;
+using TheTalesOfTwo.Core.Obstacles;
 using TheTalesOfTwo.Core.Settings;
 using TheTalesOfTwo.Core.Time;
 using UnityEngine;

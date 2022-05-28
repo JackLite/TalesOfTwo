@@ -37,8 +37,8 @@ MonoBehaviour:
     m_Address: Assets/Visual/Core/Lines/Line.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: f739d43486e81634c96bdf8de108d591
-    m_Address: Assets/Visual/Core/Obstacles/Obstacle.prefab
+  - m_GUID: 6442dffeb5176a44a8a12d9308e91f18
+    m_Address: Obstacle
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 6057f39a8cde44628c61481d2dffb2a6

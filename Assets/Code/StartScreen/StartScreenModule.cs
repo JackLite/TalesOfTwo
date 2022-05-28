@@ -18,11 +18,10 @@ namespace TheTalesOfTwo.StartScreen
             EcsWorldContainer.World.ActivateModule<MainMenuModule>();
         }
 
-        public override void Deactivate()
+        public override void OnDeactivate()
         {
             foreach (var resource in _resources)
                 Addressables.Release(resource);
-            base.Deactivate();
         }
     }
 }

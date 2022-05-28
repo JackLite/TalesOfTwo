@@ -723,9 +723,9 @@ RectTransform:
   m_Father: {fileID: 1653815033}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -25, y: 485}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761793936
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab:
-    m_AssetGUID: f739d43486e81634c96bdf8de108d591
+    m_AssetGUID: 6442dffeb5176a44a8a12d9308e91f18
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
@@ -3155,6 +3155,10 @@ PrefabInstance:
     - target: {fileID: 3041962091765950197, guid: 5e434ff04c2c8124f9eeb8a075b6e72a, type: 3}
       propertyPath: m_Name
       value: LeftAvatar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041962091765950197, guid: 5e434ff04c2c8124f9eeb8a075b6e72a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3041962091765950199, guid: 5e434ff04c2c8124f9eeb8a075b6e72a, type: 3}
       propertyPath: m_RootOrder

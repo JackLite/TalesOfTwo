@@ -7,5 +7,6 @@
         public float duration;
         public bool isRight;
         public bool isTop;
+        public bool isShown;
     }
 }

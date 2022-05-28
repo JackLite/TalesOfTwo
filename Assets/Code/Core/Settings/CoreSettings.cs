@@ -16,6 +16,12 @@ namespace TheTalesOfTwo.Core.Settings
         public float ObstaclesSpeed { get; private set; } = 10;
 
         [field:SerializeField]
+        public float HintsDelay { get; private set; } = 2.25f;
+
+        [field:SerializeField]
+        public float HintsLifetime { get; private set; } = .5f;
+
+        [field:SerializeField]
         public int Health { get; private set; } = 3;
 
         [field:Header("HitSettings")]

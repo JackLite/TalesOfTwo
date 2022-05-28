@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: CoreSettings
   m_EditorClassIdentifier: 
   <CoreSettings>k__BackingField:
-    <DelayBetweenPatterns>k__BackingField: 6
+    <DelayBetweenPatterns>k__BackingField: 1
     <EnvironmentSpeed>k__BackingField: 0.888889
     <ObstaclesSpeed>k__BackingField: 8.88889
+    <HintsDelay>k__BackingField: 2.3
+    <HintsLifetime>k__BackingField: 0.5
     <Health>k__BackingField: 3
+    <HitPauseTime>k__BackingField: 2
+    <HitResumeTime>k__BackingField: 4
   <MoveSettings>k__BackingField:
     <AvatarSpeed>k__BackingField: 5
     ease:
