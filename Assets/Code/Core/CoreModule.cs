@@ -42,6 +42,7 @@ namespace TheTalesOfTwo.Core
             Dependencies[typeof(PatternsRawContainer)] = new PatternsRawContainer(patterns.text);
             Dependencies[typeof(CoreSettings)] = _settings.CoreSettings;
             Dependencies[typeof(MoveSettings)] = _settings.MoveSettings;
+            World.ActivateModule<ObstaclesModule, CoreModule>();
             if (Application.isEditor)
                 World.ActivateModule<DebugModule>();
         }
